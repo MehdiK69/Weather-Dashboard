@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Application météo interactive avec prévisions sur 5 jours">
+    <title>Weather Dashboard</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js pour les graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+        <h1 class="title">Weather Dashboard</h1>
+    </header>
+
+    <!-- Barre de recherche -->
+    <div id="search-bar">
+        <input type="text" id="cityInput" class="search-input" placeholder="Entrez une ville...">
+        <button id="searchBtn" class="search-btn">Rechercher</button>
+    </div>
+
+    <!-- Zone d'affichage principale -->
+    <main id="weather-display">
+        
+        <!-- Météo actuelle -->
+        <section id="current-weather">
+            <h2 id="cityName" class="city-name">Paris</h2>
+            <p id="temperature" class="temperature">25°C</p>
+            <p id="description" class="description">Ensoleillé</p>
+            
+            <div class="weather-details">
+                <span id="humidity">Humidité: 60%</span>
+                <span id="wind">Vent: 15 km/h</span>
+                <span id="pressure">Pression: 1013 hPa</span>
+            </div>
+        </section>
+
+        <!-- Prévisions 5 jours -->
+        <section id="forecast">
+            <h3>Prévisions 5 jours</h3>
+            
+            <!-- Graphique -->
+            <div class="chart-container">
+                <canvas id="weatherChart"></canvas>
+            </div>
+            
+            <!-- Liste des prévisions -->
+            <div id="forecast-list" class="forecast-list">
+                <div class="forecast-day">Lundi - 23°C</div>
+                <div class="forecast-day">Mardi - 26°C</div>
+                <div class="forecast-day">Mercredi - 24°C</div>
+                <div class="forecast-day">Jeudi - 22°C</div>
+                <div class="forecast-day">Vendredi - 25°C</div>
+            </div>
+        </section>
+
+        <!-- Favoris -->
+        <section id="favorites">
+            <h3>Villes favorites ⭐</h3>
+            <div id="favorites-list">
+                <!-- Villes favorites ajoutées dynamiquement -->
+            </div>
+        </section>
+
+    </main>
+  </div>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
