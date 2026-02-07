@@ -18,6 +18,11 @@ function main () {
     }
 
     async function searchCity() {
+        const resetApiBtn = document.getElementById('resetApiKey');
+        resetApiBtn.addEventListener('click', function() {
+            localStorage.removeItem('api_key');
+            alert('Clé API supprimée. Rechargez la page pour en entrer une nouvelle.');
+        });
         
         const cityN = inputCity.value.trim();
         
@@ -67,8 +72,20 @@ function main () {
         }
     }
 
+function getApiKey() {
+    let API_KEY = localStorage.getItem('api_key');
+    if (!API_KEY) {
+        alert('Pour utiliser cette application, vous avez besoin d\'une clé API OpenWeather gratuite.\n\n1. Créez un compte sur openweathermap.org\n2. Allez dans "API keys"\n3. Copiez votre clé');
+        API_KEY = prompt('Entrez votre clé OpenWeather API :');
+        if (API_KEY) {
+            localStorage.setItem('api_key', API_KEY);
+        }
+    }
+    return API_KEY;
+}
+
     async function getWeatherData(city) {
-        const API_KEY = 'VOTRE_CLE_API_ICI'; 
+        const API_KEY = getApiKey();
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=fr`;
         
         const response = await fetch(url);
@@ -77,7 +94,7 @@ function main () {
     }
 
     async function getForecastData(city) {
-        const API_KEY = 'VOTRE_CLE_API_ICI'; 
+        const API_KEY = getApiKey();
         const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=fr`;
         
         const response = await fetch(url);

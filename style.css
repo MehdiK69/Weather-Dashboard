@@ -99,6 +99,29 @@ header {
     transform: translateY(0);
 }
 
+#resetApiKey {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2d3436;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#resetApiKey:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(116, 185, 255, 0.5);
+}
+
+#resetApiKey:active {
+    transform: translateY(0);
+}
+
+
+
 /* ========================================
    MÉTÉO ACTUELLE
 ======================================== */
