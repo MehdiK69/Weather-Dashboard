@@ -11,6 +11,13 @@ function main () {
     const pressure = document.getElementById('pressure');
     const forecastList = document.getElementById('forecast-list');
     const savedData = localStorage.getItem('lastCity');
+    const resetApiBtn = document.getElementById('resetApiKey');
+    if (resetApiBtn) {
+        resetApiBtn.addEventListener('click', function() {
+            localStorage.removeItem('api_key');
+            alert('Clé API supprimée. Rechargez la page pour en entrer une nouvelle.');
+        });
+    }
     if (savedData !== null) {
         const weatherData = JSON.parse(savedData);
         inputCity.value = weatherData.name;
@@ -18,11 +25,7 @@ function main () {
     }
 
     async function searchCity() {
-        const resetApiBtn = document.getElementById('resetApiKey');
-        resetApiBtn.addEventListener('click', function() {
-            localStorage.removeItem('api_key');
-            alert('Clé API supprimée. Rechargez la page pour en entrer une nouvelle.');
-        });
+        
         
         const cityN = inputCity.value.trim();
         
@@ -46,7 +49,9 @@ function main () {
                 temperature.textContent = `${Math.round(data.main.temp)}°C`;
                 description.textContent = data.weather[0].description;
                 humidity.textContent = `Humidité : ${data.main.humidity}%`;
-                wind.textContent = `Vent : ${data.wind.speed} km/h`;
+                // OpenWeather renvoie m/s, conversion en km/h
+                const windKmh = Math.round(data.wind.speed * 3.6);
+                wind.textContent = `Vent : ${windKmh} km/h`;
                 pressure.textContent = `Pression : ${data.main.pressure} hPa`;
                 const dailyForecast = [
                     forecast.list[4],
