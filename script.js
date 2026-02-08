@@ -15,7 +15,8 @@ function main () {
     if (resetApiBtn) {
         resetApiBtn.addEventListener('click', function() {
             localStorage.removeItem('api_key');
-            alert('Clé API supprimée. Rechargez la page pour en entrer une nouvelle.');
+            alert('Clé API supprimée.');
+            location.reload();
         });
     }
     if (savedData !== null) {
