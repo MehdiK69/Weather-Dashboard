@@ -1,7 +1,7 @@
 # Weather-Dashboard
 An interactive weather application built to strengthen front-end development skills and master API integration. Uses the OpenWeather API to display current weather conditions and 5-day forecasts with graphical visualization.
 
-## 🚀 Utilisation
+## Utilisation
 
 1. Ouvrez l'application : [Lien vers GitHub Pages]
 2. Au premier lancement, l'application vous demandera votre clé API OpenWeather
@@ -10,7 +10,7 @@ An interactive weather application built to strengthen front-end development ski
 
 **Note :** Votre clé API est stockée localement dans votre navigateur et n'est jamais partagée.
 
-🚀 Usage
+Usage
 	1.	Open the application: [Link to GitHub Pages]
 	2.	On first launch, the application will ask for your OpenWeather API key
 	3.	Get a free API key from OpenWeatherMap￼
